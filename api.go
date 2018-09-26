@@ -534,7 +534,8 @@ func (api *API) call(baseAPI string, endpoint string, body interface{}, out inte
 		return ErrNotFound
 	}
 	if resp.StatusCode > 299 {
-		return fmt.Errorf("%s: status code=%d, body=%s", req.URL.String(), resp.StatusCode, cnt.String())
+		return fmt.Errorf("%s", cnt.String())  // jshang changed .
+		//return fmt.Errorf("%s: status code=%d, body=%s", req.URL.String(), resp.StatusCode, cnt.String())
 	}
 
 	if api.Debug {
